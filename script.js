@@ -53,6 +53,10 @@ async function runModelOnFrame(frameData) {
 video.addEventListener("play", function () {
     const canvas = document.getElementById("canvas");
     const context = canvas.getContext("2d");
+    const resizedWidth = 128;
+    const resizedHeight = 128;
+    canvas.width = resizedWidth;
+    canvas.height = resizedHeight;
 
     setInterval(async function () {
         // Draw the current frame onto the canvas
