@@ -1,5 +1,4 @@
 // import { Tensor, Session } from 'onnxjs';
-import { Tensor, InferenceSession } from "onnxruntime-web";
 
 // script.js
 // JavaScript code for webcam access and model inference using ONNX.js
