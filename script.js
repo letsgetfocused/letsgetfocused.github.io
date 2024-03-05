@@ -1,3 +1,6 @@
+// import { Tensor, Session } from 'onnxjs';
+import { Tensor, InferenceSession } from "onnxruntime-web";
+
 // script.js
 // JavaScript code for webcam access and model inference using ONNX.js
 
@@ -18,12 +21,12 @@ if (navigator.mediaDevices.getUserMedia) {
 }
 
 // Load the ONNX model
-const session = new onnx.InferenceSession();
-session.loadModel("model.onnx").then(() => {
-    console.log("Model loaded successfully");
-}).catch((error) => {
-    console.log("Error loading model: " + error);
-});
+const session = await InferenceSession.create(
+	"./model.onnx",
+	{
+	  executionProviders: ["webgl"],
+	}
+  );
 
 // Function to run model inference on a frame
 async function runModelOnFrame(frameData) {
