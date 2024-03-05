@@ -20,7 +20,7 @@ if (navigator.mediaDevices.getUserMedia) {
 }
 
 // Load the ONNX model
-const session = await InferenceSession.create(
+const session = InferenceSession.create(
 	"./model.onnx",
 	{
 	  executionProviders: ["webgl"],
