@@ -43,7 +43,8 @@
                         const tensor = new ort.Tensor('float32', data, [1, 128, 128, 4]); // Adjust the last dimension to match the number of channels
 
                         // Feed input and run
-                        const results = await session.run({ input: tensor });
+                        const feeds = { image: tensor }; // Use the correct input key
+                        const results = await session.run(feeds);
 
                         // Process results as needed
                         const outputData = results.output.data;
